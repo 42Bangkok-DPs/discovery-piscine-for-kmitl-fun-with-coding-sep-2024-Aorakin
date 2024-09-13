@@ -10,7 +10,7 @@ newTaskBtn.addEventListener('click', function() {
     if (task) {
         addTodo(task);
         saveTodoList();
-    }
+    } 
 });
 
 function addTodo(task) {

@@ -1,0 +1,32 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   .parallax {
+     height: 100vh;
+     width: 100%;
+     background-attachment: fixed;
+     background-position: center;
+     background-size: cover;
+   }
+   .bg1 {
+     background-image: url("https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg");
+   }
+   .bg2 {
+     background-image: url("https://cdn.britannica.com/34/235834-050-C5843610/two-different-breeds-of-cats-side-by-side-outdoors-in-the-garden.jpg");
+   }
+   .centered-message {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100%;
+     text-align: center;
+     color: white;
+   }
+   .black-block {
+     background-color: black;
+     color: white;
+     text-align: center;
+     padding: 50px;
+   }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const $balloon = $('.balloon');
+            let size = 200;
+            const maxSize = 420;
+            const minSize = 200;
+            const colors = ['red', 'green', 'blue'];
+            let colorIndex = 0;
+     
+            function changeColor(forward = true) {
+                if (forward) {
+                    colorIndex = (colorIndex + 1) % colors.length;
+                } else {
+                    colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+                }
+                $balloon.css('backgroundColor', colors[colorIndex]);
+            }
+
+            $balloon.on('click', function() {
+                if (size < maxSize) {
+                    size += 10;
+                    $balloon.css({
+                        'width': size + 'px',
+                        'height': size + 'px'
+                    });
+                    changeColor();
+                }
+                if (size >= maxSize) {
+                    size = minSize;  
+                    $balloon.css({
+                        'width': size + 'px',
+                        'height': size + 'px',
+                        'backgroundColor': 'red'
+                    });
+                    colorIndex = 0; 
+                }
+            });
+
+            $balloon.on('mouseleave', function() {
+                if (size > minSize) {
+                    size -= 5;
+                    $balloon.css({
+                        'width': size + 'px',
+                        'height': size + 'px'
+                    });
+                    changeColor(false); 
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="balloon"></div>
+</body>
+</html>
